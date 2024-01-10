@@ -5,7 +5,7 @@ function Card({appState, submittedValue, handleRefresh, handleLike }) {
     return (
         <div >
 
-            {submittedValue !== null? (<>
+            {appState = appState[1]? (<>
                     <div className='card'>
 
                         <h1 className='title'>{appState[1]}</h1>
@@ -20,7 +20,7 @@ function Card({appState, submittedValue, handleRefresh, handleLike }) {
                     <button className='btn' onClick={handleRefresh}>Refresh</button>
                     </div>
                 </>
-            ) : <p></p>}
+            ) : <p> Please add you <a href='https://kinopoisk.dev/'>API token</a> to filed and submit</p>}
 
 
         </div>
