@@ -76,11 +76,11 @@ function App() {
       <Router>
           <div className='main'>
 
-              <div>
+              <div className='inlin'>
                   <nav className="mint-nav">
                       <div>
                           <img className='dd' src={require("./icons/logos.png")}/>
-                          <div className="logo">Low1Movie</div>
+                          <div className="logo">LowMovie</div>
                       </div>
                       <form onSubmit={handleSubmit} className="searchbar">
                           <label>
@@ -92,12 +92,13 @@ function App() {
                                   placeholder="Insert Api key...."
                               />
                           </label>
-                          <button type="submit">Submit</button>
+                          <button type="submit" className='btnn'>Submit</button>
                       </form>
 
+<div className='link'>
                       <Link to='/' className="nav-links"> Home </Link>
                       <Link to='/like' className="alik"> Saved</Link>
-
+              </div>
                   </nav>
 
 

@@ -8,12 +8,12 @@ function Like({likedData}) {
     };
     return (<div>
             <button onClick={dataRefresh}>reset  </button>
-        <ul className='list'>
+      <div className='blok' > <ul className='list'>
             {likedData.map((item, index, rr ) => (
                 <li  key={index}><a href={"https://www.kinopoisk.ru/film/"+item[0]} ><img className='saved' src={item[2]}/></a></li>
             ))}
-        </ul>
-    </div>
+        </ul> </div>
+</div>
     );
 }
 

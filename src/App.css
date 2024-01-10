@@ -13,14 +13,26 @@ body {
 
 .logo {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
+}
+.link {
+  display: flex;
+
+
 }
 
 .search-bar {
-display: flex;
+
+  display: inline-block;
+
+
 }
-dsfsd
+.btnn {
+  float: right;
+  outline: none;
+}
+
 input[type="text"] {
   padding: 7px;
   border: none;
@@ -41,6 +53,7 @@ button {
   text-decoration: none;
   color: white;
   display: flex;
+  margin-right: 30px;
 
 
 }
