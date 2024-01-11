@@ -30,6 +30,16 @@ display: flex;
     margin-top: 50px;
     margin-right: 26px;
 }
+.added {
+    color: #da922b;
+    margin-left: 60px;
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
 .rating {
     margin-top: 65px;
     margin-right: 20px;

@@ -12,6 +12,7 @@ function App() {
 
   const [submittedValue, setSubmittedValue] = useState(null);
  const [likedData, setLikedData] = useState([]);
+    const [showNotification, setShowNotification] = useState(false);
     const handleRefresh = (e) => {
         // Trigger a refresh by setting submittedValue to null
         fetchData();
@@ -63,19 +64,24 @@ function App() {
                 console.log(e);
             });
     };
+    const isAlreadyLiked = likedData.some(item => {
+        // Replace the following comparison logic with your specific criteria
+        return JSON.stringify(item) === JSON.stringify(appState);
+    });
     const handleLike = () => {
         // Save liked data to local storage
         if (appState) {
             // Check if appState is already in likedData
-            const isAlreadyLiked = likedData.some(item => {
-                // Replace the following comparison logic with your specific criteria
-                return JSON.stringify(item) === JSON.stringify(appState);
-            });
-
             if (!isAlreadyLiked) {
                 const updatedLikedData = [...likedData, appState];
                 setLikedData(updatedLikedData);
                 localStorage.setItem('likedData', JSON.stringify(updatedLikedData));
+                setShowNotification(true);
+
+                // Reset the notification after a certain time (e.g., 3 seconds)
+                setTimeout(() => {
+                    setShowNotification(false);
+                }, 1800);
             } else {
                 // Handle the case where the data is already present, e.g., show a message or do nothing
                 console.log('Data is already liked!');
@@ -106,7 +112,8 @@ function App() {
                           <button type="submit" className='btnn'>Submit</button>
                       </form>
 
-<div className='link'>
+
+                      <div className='link'>
                       <Link to='/' className="nav-links"> Home </Link>
                       <Link to='/like' className="alik"> Saved</Link>
               </div>
@@ -123,7 +130,7 @@ function App() {
           </div>
           <Routes>
               <Route path="/" element={<Card appState={appState}
-              submittedValue={submittedValue} handleLike={handleLike} handleRefresh={handleRefresh}/>}/>
+              submittedValue={submittedValue} handleLike={handleLike} handleRefresh={handleRefresh} showNotification={showNotification}/>}/>
               <Route path="/like" element={<Like likedData={likedData}/>}/>
           </Routes>
 </Router> );

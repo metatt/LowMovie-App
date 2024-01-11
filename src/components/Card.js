@@ -1,7 +1,7 @@
 import React from 'react';
 import './card.css'
 
-function Card({appState, submittedValue, handleRefresh, handleLike }) {
+function Card({appState, submittedValue, handleRefresh, handleLike, showNotification }) {
     return (
         <div >
 
@@ -19,6 +19,7 @@ function Card({appState, submittedValue, handleRefresh, handleLike }) {
                     <button className='btn' onClick={handleLike}><i class="gg-bookmark"></i></button>
                     <button className='btn' onClick={handleRefresh}>Refresh</button>
                     </div>
+                    {showNotification && <div className='added'>Saved</div>}
                 </>
             ) : <p> Please add you <a href='https://kinopoisk.dev/'>API token</a> to filed and submit</p>}
 
