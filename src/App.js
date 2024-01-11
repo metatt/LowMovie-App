@@ -66,9 +66,20 @@ function App() {
     const handleLike = () => {
         // Save liked data to local storage
         if (appState) {
-            const updatedLikedData = [...likedData, appState];
-            setLikedData(updatedLikedData);
-            localStorage.setItem('likedData', JSON.stringify(updatedLikedData));
+            // Check if appState is already in likedData
+            const isAlreadyLiked = likedData.some(item => {
+                // Replace the following comparison logic with your specific criteria
+                return JSON.stringify(item) === JSON.stringify(appState);
+            });
+
+            if (!isAlreadyLiked) {
+                const updatedLikedData = [...likedData, appState];
+                setLikedData(updatedLikedData);
+                localStorage.setItem('likedData', JSON.stringify(updatedLikedData));
+            } else {
+                // Handle the case where the data is already present, e.g., show a message or do nothing
+                console.log('Data is already liked!');
+            }
         }
     };
 
